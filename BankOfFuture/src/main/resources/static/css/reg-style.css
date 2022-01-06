@@ -1,0 +1,307 @@
+:root {
+  --primary-color: rgb(11, 78, 179);
+  --green-color: rgb(11, 179, 39);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+/* Global Stylings */
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+input,
+input[type=number],
+input[type=date],
+select {
+  /* display: block; */
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 10px;
+}
+
+input[type=checkbox] {
+  float: left;
+  margin-bottom: 300px 0px;
+  width: 11px;
+}
+
+
+.clear {
+  clear: both;
+}
+
+.required {
+  color: red;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.width-25 {
+  width: 25%;
+}
+
+.width-10 {
+  width: 17%;
+}
+
+.width-27 {
+  width: 27%;
+}
+
+.width-48 {
+  width: 49.7%;
+}
+
+.width-35 {
+  width: 50%;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.text-center {
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Progressbar */
+.progressbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  counter-reset: step;
+  margin: 2rem 0 1rem;
+}
+
+.progressbar::before,
+.progress {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: #dcdcdc;
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--primary-color);
+  width: 0%;
+  transition: 0.3s;
+}
+
+.progress-step {
+  width: 2.1875rem;
+  height: 2.1875rem;
+  background-color: #dcdcdc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-step::before {
+  counter-increment: step;
+  content: counter(step);
+}
+
+.progress-step::after {
+  /* content: attr(data-title); */
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.progress-step-active {
+  background-color: var(--primary-color);
+  color: #f3f3f3;
+}
+
+/* Form */
+.form {
+  width: clamp(820px, 40%, 430px);
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 0.35rem;
+  padding: 1.5rem;
+}
+
+.form-step {
+  display: none;
+  transform-origin: top;
+  animation: animate 0.5s;
+}
+
+.form-step-active {
+  display: block;
+}
+
+.input-group {
+  margin: 1rem 0;
+}
+
+@keyframes animate {
+  from {
+    transform: scale(1, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+/* Button */
+.btns-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem;
+  display: block;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  color: #f3f3f3;
+  text-align: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: .95rem;
+}
+
+.green-btn {
+  background-color: var(--green-color);
+}
+
+.btn:hover {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+  color: black;
+}
+
+.card-title {
+  padding: 2px 0 5px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #012970;
+  font-family: "Poppins", sans-serif;
+}
+
+.card-highlight {
+  color: var(--primary-color);
+}
+
+.col1 {
+  float: left;
+  width: 450px;
+}
+.col{
+  float: left;
+}
+.col2 {
+  float: right;
+  margin-top: 40px;
+  display: grid;
+}
+
+.col3 {
+  clear: both;
+}
+
+.photo-container1 {
+  display: grid;
+  grid-template-areas: 'photo photo photo-vline1'
+                        'photo photo phototext1'
+                        'photo photo photo-vline2'
+                    
+}
+
+.photo-container2 {
+  display: grid;
+  grid-template-areas: 'sign sign phototext3'
+                    
+}
+
+.photo {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  height: 180px;
+  width: 150px;
+  grid-area: photo;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.sign {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  height: 50px;
+  width: 150px;
+  grid-area: sign;
+  display: flex;
+  flex-direction: column;
+  text-align: center; 
+}
+.phototext1 {
+  margin-top: 25px;
+  writing-mode: vertical-rl;
+}
+.phototext3{
+  writing-mode: vertical-rl;
+}
+
+.btn-121{
+  margin-top: 70px;
+}
+input[type="file"]{
+	width:150px;
+    color:transparent;
+    border-radius: 50px;
+    background-color: var(--primary-color);
+}
+::-webkit-file-upload-button{
+    width:145px;
+	color: #f3f3f3;
+	border: none;
+	border-radius: 50px;
+	background-color: var(--primary-color); 
+	outline: none;
+	font-size: 14px;
+} 
+input[type="file"]:hover {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+}
+::-webkit-file-upload-button:hover {
+  color: black;
+}
+/* 
+.tips{
+	color:#808080;
+	font-size: 11px;
+	margin-top:0;
+} */
